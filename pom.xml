@@ -13,10 +13,10 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>TP_1_Authentification_dangereuse</artifactId>
+	<artifactId>TP_2_auth_fragile</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TP_1_Authentification_dangereuse</name>
-	<description>TP 1 Authentification dangereuse</description>
+	<name>TP_2_auth_fragile</name>
+	<description>TP 2 Authentification fragile</description>
 
 	<properties>
 		<java.version>17</java.version>
@@ -28,6 +28,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -94,6 +99,26 @@
 				<configuration>
 					<mainClass>com.example.auth.ui.AuthUiApplication</mainClass>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>
